@@ -2,41 +2,152 @@
 
 A serverless analytics sample that queries Parquet data in Amazon S3 using DuckDB inside an AWS Lambda container image.
 
-This project demonstrates a practical pattern for running analytical SQL workloads on cold-start-friendly serverless infrastructure without moving the full dataset into a traditional database.
+This project demonstrates a practical pattern for running analytical SQL workloads on low-cost serverless infrastructure while keeping the data set in S3 and avoiding a full database deployment.
 
 ## Architecture
 
-- AWS Lambda runs the ingestion and query logic.
-- DuckDB loads the `httpfs`, `aws`, and `json` extensions.
-- The Lambda function reads Parquet files from S3 using DuckDB's S3 support.
-- Aggregation results are written back to S3 as Parquet and JSON artifacts.
-- CloudWatch captures logs, metrics, and request timings.
+```mermaid
+flowchart LR
+    Client[API clients / event producers] -->|SigV4-authenticated HTTP API| API[Amazon API Gateway HTTP API]
+    API --> Lambda[AWS Lambda container image]
+    Lambda --> DuckDB[DuckDB + httpfs/aws/json extensions]
+    DuckDB --> S3[(Amazon S3 / Parquet)]
+    Lambda --> Out[(S3 output objects: Parquet + JSON)]
+    Lambda --> Logs[Amazon CloudWatch Logs]
+```
 
-## Why this project
+## What this implementation does
 
-The repository is designed to show how to:
+- Reads Parquet files directly from S3 using DuckDB
+- Aggregates `country`, `product_category`, `quantity`, and `unit_price` data
+- Writes result objects back to S3 as deterministic Parquet/JSON outputs
+- Supports API Gateway HTTP API access with AWS IAM as the default auth option
+- Reuses a warm DuckDB connection within a single Lambda execution environment
+- Safely processes multiple S3 event records and logs partial failures
 
-- query large Parquet files directly in S3,
-- keep the processing layer stateless and serverless,
-- run analytical SQL at lower cost for read-heavy workloads,
-- package Python + DuckDB inside a Lambda container image.
+## Supported API parameters
 
-## Repository layout
+The summary route accepts only these query parameters:
 
-- `src/lambda_function.py` — Lambda handler and DuckDB logic
-- `src/tests/test_lambda_function.py` — unit tests
-- `docker/Dockerfile` — Lambda container image build
-- `scripts/build.sh` — Docker build helper
-- `measurements/summary.md` — benchmark notes and timings
-- `docs/` — project documentation
-- `terraform/` — infrastructure definitions for deployment
+- `country` — exact case-insensitive country string, maximum 100 characters
+- `year` — integer year that is matched against the dataset's `order_date` column
 
-## Prerequisites
+Examples:
 
-- Docker
-- Python 3.11+
-- AWS credentials configured for local development or deployment
-- An S3 bucket containing Parquet files under a `raw/` prefix
+```text
+GET /sales/summary?country=US&year=2026
+GET /sales/summary?year=2025
+```
+
+Query validation behavior:
+
+- Unknown parameters are rejected with HTTP 400
+- Empty or malformed `country` values are rejected
+- Invalid or out-of-range `year` values are rejected
+- The filter is applied in SQL with bound parameters rather than string interpolation
+
+## Error responses
+
+The HTTP summary route returns:
+
+- `200 OK` for valid requests
+- `400 Bad Request` for invalid query inputs
+- a JSON error payload such as:
+
+```json
+{
+  "status": "error",
+  "error": "Unsupported query parameter: region"
+}
+```
+
+The S3 event path returns a summary payload with `processed_records`, `failed_records`, and `results` when more than one record is processed.
+
+## AWS IAM authentication
+
+The Terraform configuration default is AWS IAM authorization for the API Gateway HTTP API route. This is the recommended production mode.
+
+Production behavior:
+
+- default route authorization: `AWS_IAM`
+- public unauthenticated demo mode: set `allow_public_demo = true` explicitly
+- no credentials are stored in source control or environment files
+
+Example signed-request pattern using Python and SigV4:
+
+```python
+import boto3
+import requests
+from botocore.auth import SigV4Auth
+from botocore.awsrequest import AWSRequest
+
+session = boto3.Session(region_name="us-east-1")
+creds = session.get_credentials().get_frozen_credentials()
+url = "https://<api-id>.execute-api.us-east-1.amazonaws.com/sales/summary?country=US&year=2026"
+request = AWSRequest(method="GET", url=url)
+SigV4Auth(creds, "execute-api", "us-east-1").add_auth(request)
+response = requests.get(url, headers=request.headers, timeout=30)
+print(response.status_code)
+print(response.json())
+```
+
+## DuckDB connection lifecycle
+
+The Lambda implementation initializes a connection lazily at module scope and reuses it for warm invocations in the same execution environment.
+
+Important guardrails:
+
+- request-specific parameters are never stored across invocations
+- the shared connection is protected by a lock for safe access in the same environment
+- if a connection becomes unusable, the code resets and recreates it on the subsequent invocation
+- the connection is not a cross-invocation cache and is not assumed to be shared across concurrent Lambda environments
+
+## S3 event processing behavior
+
+The S3 notification handler:
+
+- iterates through every object in the `Records` list
+- validates each record individually
+- keeps processing valid records even when some records in the same event are invalid
+- logs failed record metadata and returns a partial-success summary when needed
+- does not silently drop records that fail validation or execution
+
+This is important for S3 retries and partial delivery scenarios.
+
+## Idempotency and retry semantics
+
+Each output object key is derived from:
+
+- the full source object path
+- the S3 object ETag
+- a deterministic result filename
+
+This keeps retries of the same object version writing to the same output key while preventing collisions when two files share the same basename in different prefixes.
+
+Example pattern:
+
+```text
+results/raw/sales/europe/orders/etag123/sales_by_country_category.parquet
+```
+
+The project intentionally does not claim exactly-once semantics; it guarantees deterministic reprocessing behavior for a retry of the same object version.
+
+## Configuration
+
+The Lambda reads configuration from environment variables:
+
+- `AWS_REGION`
+- `SALES_BUCKET`
+- `SALES_PREFIX`
+- `RAW_PREFIX`
+- `RESULTS_PREFIX`
+- `DUCKDB_EXTENSION_DIRECTORY`
+
+Example:
+
+```bash
+cp .env.example .env
+```
 
 ## Local setup
 
@@ -59,29 +170,50 @@ pytest -q
 ./scripts/build.sh
 ```
 
-## Example environment
+## Terraform deployment notes
 
-Copy the example file and adjust values as needed:
+The repository includes a minimal Terraform configuration under `terraform/`.
 
-```bash
-cp .env.example .env
+The default production posture is:
+
+- `AWS_IAM` route authorization
+- least-privilege S3 object access for the configured bucket and prefixes
+- CloudWatch log group retention enabled
+- Lambda timeout and memory tuned through Terraform variables
+
+To opt into an unauthenticated demo route, set:
+
+```hcl
+allow_public_demo = true
 ```
 
-Typical values include:
+## Repository layout
 
-- `AWS_REGION`
-- `SALES_BUCKET`
-- `SALES_PREFIX`
-- `RAW_PREFIX`
-- `RESULTS_PREFIX`
+- `src/lambda_function.py` — Lambda handler and DuckDB logic
+- `src/tests/test_lambda_function.py` — unit tests
+- `docker/Dockerfile` — Lambda container image build
+- `scripts/build.sh` — Docker build helper
+- `measurements/summary.md` — benchmark notes and timings
+- `docs/` — project documentation
+- `terraform/` — infrastructure definitions for deployment
 
-## Notes
+## Implemented versus future work
 
-The implementation is intentionally conservative:
+Implemented:
 
-- only raw parquet files under the expected prefix are processed,
-- output objects reuse deterministic keys to avoid duplicate writes on retries,
-- Lambda uses the AWS credential chain instead of hard-coded secrets.
+- strict parameter validation for `country` and `year`
+- parameterized SQL filtering against `order_date`
+- AWS IAM default auth configuration in Terraform
+- lazy, safe warm connection reuse in a single Lambda environment
+- deterministic S3 output keys
+- partial-failure handling for multiple S3 records
+
+Future improvements:
+
+- a more advanced event-driven dedupe layer if exact-once semantics are required
+- bucket-level multi-prefix retention policies
+- richer API metrics and structured request tracing
+- broader validation for a wider dataset schema in the production environment
 
 ## License
 

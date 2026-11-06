@@ -11,6 +11,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 from typing import Any
 from urllib.parse import unquote_plus
@@ -20,6 +21,10 @@ LOGGER.setLevel(logging.INFO)
 
 SAFE_KEY_PATTERN = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9/_.-]*$")
 SAFE_BUCKET_PATTERN = re.compile(r"^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$")
+SUPPORTED_QUERY_PARAMS = {"country", "year"}
+MIN_YEAR = 1970
+MAX_YEAR = 2100
+MAX_COUNTRY_LENGTH = 100
 
 RAW_PREFIX = os.environ.get("RAW_PREFIX", "raw/")
 RESULTS_PREFIX = os.environ.get("RESULTS_PREFIX", "results/")
@@ -39,6 +44,10 @@ GROUP BY
     product_category
 ORDER BY revenue DESC
 """
+
+_DUCKDB_CONNECTION: Any | None = None
+_DUCKDB_CONNECTION_LOCK = threading.Lock()
+_DUCKDB_CONNECTION_REGION: str | None = None
 
 
 class EventParseError(ValueError):
@@ -92,13 +101,55 @@ def validate_object_key(key: str, raw_prefix: str = RAW_PREFIX) -> str:
     return key
 
 
-def parse_s3_record(event: dict[str, Any]) -> dict[str, str]:
-    """Extract bucket, decoded key, and ETag from a single-record S3 event."""
-    records = event.get("Records")
-    if not isinstance(records, list) or not records:
-        raise EventParseError("Event does not contain Records")
+def validate_query_params(filters: dict[str, Any] | None) -> dict[str, Any]:
+    """Validate and normalize supported HTTP query parameters."""
+    if filters is None:
+        return {}
+    if not isinstance(filters, dict):
+        raise ValueError("Query parameters must be a dictionary")
 
-    record = records[0]
+    unsupported = sorted(set(filters) - SUPPORTED_QUERY_PARAMS)
+    if unsupported:
+        raise ValueError(f"Unsupported query parameter: {unsupported[0]}")
+
+    cleaned: dict[str, Any] = {}
+    country_value = filters.get("country")
+    if country_value is not None:
+        if not isinstance(country_value, str):
+            raise ValueError("country parameter must be a string")
+        country = country_value.strip()
+        if not country:
+            raise ValueError("country parameter must not be empty")
+        if len(country) > MAX_COUNTRY_LENGTH:
+            raise ValueError("country parameter exceeds 100 characters")
+        if not re.fullmatch(r"[A-Za-z0-9\-_. /]+", country):
+            raise ValueError("country parameter contains unsupported characters")
+        cleaned["country"] = country
+
+    year_value = filters.get("year")
+    if year_value is not None:
+        if isinstance(year_value, bool):
+            raise ValueError("year parameter must be an integer year")
+        if isinstance(year_value, str):
+            if not year_value.strip():
+                raise ValueError("year parameter must not be empty")
+            try:
+                year = int(year_value)
+            except ValueError as exc:
+                raise ValueError("year parameter must be a valid integer") from exc
+        elif isinstance(year_value, int):
+            year = year_value
+        else:
+            raise ValueError("year parameter must be an integer or a year string")
+
+        if year < MIN_YEAR or year > MAX_YEAR:
+            raise ValueError(f"year parameter must be between {MIN_YEAR} and {MAX_YEAR}")
+        cleaned["year"] = year
+
+    return cleaned
+
+
+def parse_single_record(record: dict[str, Any]) -> dict[str, str]:
     s3 = record.get("s3") if isinstance(record, dict) else None
     if not isinstance(s3, dict):
         raise EventParseError("Event record is missing s3 metadata")
@@ -119,27 +170,87 @@ def parse_s3_record(event: dict[str, Any]) -> dict[str, str]:
     return {"bucket": bucket, "key": key, "etag": etag_clean}
 
 
+def parse_s3_record(event: dict[str, Any]) -> dict[str, str]:
+    """Extract bucket, decoded key, and ETag from a single-record S3 event."""
+    records = event.get("Records")
+    if not isinstance(records, list) or not records:
+        raise EventParseError("Event does not contain Records")
+    return parse_single_record(records[0])
+
+
+def parse_s3_records(event: dict[str, Any]) -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
+    records = event.get("Records")
+    if not isinstance(records, list) or not records:
+        raise EventParseError("Event does not contain Records")
+
+    valid_records: list[dict[str, str]] = []
+    invalid_records: list[dict[str, Any]] = []
+    for index, record in enumerate(records):
+        try:
+            valid_records.append(parse_single_record(record))
+        except Exception as exc:  # pragma: no cover - exercised in unit tests via handler
+            invalid_records.append({"index": index, "error": str(exc)})
+    if not valid_records:
+        raise EventParseError("Event contains no valid S3 records")
+    return valid_records, invalid_records
+
+
 def s3_uri(bucket: str, key: str) -> str:
     return f"s3://{bucket}/{key}"
 
 
-def result_keys(source_key: str, etag: str) -> tuple[str, str]:
-    """Deterministic output keys so retries overwrite the same objects.
+def _sanitize_result_fragment(raw: str) -> str:
+    fragment = raw.strip().strip("/")
+    fragment = fragment.replace("..", "")
+    fragment = re.sub(r"[^a-zA-Z0-9/_.-]+", "-", fragment)
+    fragment = re.sub(r"/+", "/", fragment)
+    return fragment.strip("/") or "object"
 
-    S3 event deliveries can be retried. This project does not claim exactly-once
-    processing. Writing to a key derived from the source key and ETag makes a
-    retry of the same object version overwrite the same result.
+
+def result_keys(source_key: str, etag: str) -> tuple[str, str]:
+    """Produce deterministic output keys that include the full source path.
+
+    The key is derived from the source key plus the object version ETag so retries
+    of the same object version overwrite the same result while distinct paths do
+    not collide.
     """
-    stem = source_key.rsplit("/", 1)[-1]
-    if stem.lower().endswith(".parquet"):
-        stem = stem[: -len(".parquet")]
-    safe_etag = etag or "unknown-etag"
-    base = f"{RESULTS_PREFIX}{stem}/{safe_etag}"
+    base_key = _sanitize_result_fragment(source_key.rsplit(".parquet", 1)[0] if source_key.lower().endswith(".parquet") else source_key)
+    safe_etag = re.sub(r"[^a-zA-Z0-9._-]+", "-", str(etag or "unknown-etag"))
+    base = f"{RESULTS_PREFIX}{base_key}/{safe_etag}"
     return f"{base}/sales_by_country_category.parquet", f"{base}/sales_by_country_category.json"
 
 
 def aggregation_sql() -> str:
     return AGGREGATION_SQL
+
+
+def build_aggregation_query(source_uri: str, filters: dict[str, Any] | None = None) -> tuple[str, list[Any]]:
+    query = """
+        SELECT
+            country,
+            product_category,
+            SUM(quantity) AS units_sold,
+            SUM(quantity * unit_price) AS revenue
+        FROM read_parquet(?)
+    """
+    params: list[Any] = [source_uri]
+    clauses: list[str] = []
+    normalized_filters = filters or {}
+    if "country" in normalized_filters:
+        clauses.append("LOWER(country) = LOWER(?)")
+        params.append(normalized_filters["country"])
+    if "year" in normalized_filters:
+        clauses.append("EXTRACT(YEAR FROM order_date) = CAST(? AS INTEGER)")
+        params.append(normalized_filters["year"])
+    if clauses:
+        query = f"{query} WHERE {' AND '.join(clauses)}\n"
+    query += """
+        GROUP BY
+            country,
+            product_category
+        ORDER BY revenue DESC, country, product_category
+    """
+    return query, params
 
 
 def configure_duckdb(con: Any, region: str) -> None:
@@ -169,9 +280,48 @@ def configure_duckdb(con: Any, region: str) -> None:
     )
 
 
-def run_aggregation(con: Any, source_uri: str) -> list[tuple[Any, ...]]:
+def get_duckdb_connection(region: str) -> Any:
+    """Return a lazily initialized connection shared within one execution environment."""
+    global _DUCKDB_CONNECTION, _DUCKDB_CONNECTION_REGION
+    with _DUCKDB_CONNECTION_LOCK:
+        if _DUCKDB_CONNECTION is None:
+            import duckdb
+
+            _DUCKDB_CONNECTION = duckdb.connect(database=":memory:")
+            _DUCKDB_CONNECTION_REGION = None
+        if _DUCKDB_CONNECTION_REGION != region:
+            try:
+                configure_duckdb(_DUCKDB_CONNECTION, region)
+                _DUCKDB_CONNECTION_REGION = region
+            except Exception:
+                try:
+                    _DUCKDB_CONNECTION.close()
+                except Exception:
+                    pass
+                _DUCKDB_CONNECTION = None
+                _DUCKDB_CONNECTION_REGION = None
+                raise
+        return _DUCKDB_CONNECTION
+
+
+def run_aggregation(con: Any, source_uri: str, filters: dict[str, Any] | None = None) -> list[tuple[Any, ...]]:
     """Execute the example GROUP BY aggregation against a Parquet source."""
-    return con.execute(AGGREGATION_SQL, [source_uri]).fetchall()
+    query, params = build_aggregation_query(source_uri, filters)
+    return con.execute(query, params).fetchall()
+
+
+def resolve_aws_region() -> str:
+    """Read the AWS region from a Lambda-safe environment key.
+
+    AWS_REGION is a reserved Lambda runtime variable, so the application stores its
+    region under APP_AWS_REGION and falls back to the standard AWS_DEFAULT_REGION
+    or AWS_REGION values for compatibility with tests and local execution.
+    """
+    for key in ("APP_AWS_REGION", "AWS_DEFAULT_REGION", "AWS_REGION"):
+        value = os.environ.get(key)
+        if value is not None and str(value).strip():
+            return str(value).strip()
+    raise RuntimeError("AWS region is not configured")
 
 
 def _assert_safe_uri(uri: str) -> str:
@@ -191,14 +341,18 @@ def _assert_safe_uri(uri: str) -> str:
     return uri
 
 
-def write_results(con: Any, source_uri: str, parquet_uri: str, json_uri: str) -> None:
-    """Write aggregation output as Parquet and JSON (S3 in AWS, local paths in tests)."""
+def write_results(con: Any, source_uri: str, parquet_uri: str, json_uri: str, filters: dict[str, Any] | None = None) -> list[tuple[Any, ...]]:
+    """Write aggregation output as Parquet and JSON using one materialized DuckDB result."""
     source_uri = _assert_safe_uri(source_uri)
     parquet_uri = _assert_safe_uri(parquet_uri)
     json_uri = _assert_safe_uri(json_uri)
-    con.execute("CREATE OR REPLACE TABLE sales_agg AS " + AGGREGATION_SQL, [source_uri])
+
+    query, params = build_aggregation_query(source_uri, filters)
+    con.execute("CREATE OR REPLACE TEMP TABLE sales_agg AS " + query, params)
+    rows = con.execute("SELECT * FROM sales_agg ORDER BY revenue DESC, country, product_category").fetchall()
     con.execute(f"COPY sales_agg TO '{parquet_uri}' (FORMAT parquet)")
     con.execute(f"COPY sales_agg TO '{json_uri}' (FORMAT json, ARRAY true)")
+    return rows
 
 
 def _http_api_summary(event: dict[str, Any], request_id: str | None, started: float) -> dict[str, Any]:
@@ -208,27 +362,28 @@ def _http_api_summary(event: dict[str, Any], request_id: str | None, started: fl
         raise RuntimeError("SALES_BUCKET is not set")
 
     prefix = os.environ.get("SALES_PREFIX", "raw/sales").strip("/")
-    filters = event.get("queryStringParameters") or event.get("params") or {}
-    if not isinstance(filters, dict):
-        filters = {}
+    params = event.get("queryStringParameters") or event.get("params") or {}
+    if not isinstance(params, dict):
+        params = {}
+
+    try:
+        filters = validate_query_params(params)
+    except ValueError as exc:
+        return {
+            "statusCode": 400,
+            "headers": {"Content-Type": "application/json"},
+            "body": json.dumps({"status": "error", "error": str(exc)}),
+        }
 
     _json_log(logging.INFO, "request.received", keys=list(event.keys()), request_id=request_id)
-    _json_log(logging.INFO, "request.params", params=filters, request_id=request_id)
+    _json_log(logging.INFO, "request.params", params=params, request_id=request_id)
     _json_log(logging.INFO, "query.start", bucket=bucket, prefix=prefix, filters=filters, request_id=request_id)
 
-    region = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION")
-    if not region:
-        raise RuntimeError("AWS_REGION is not set")
+    region = resolve_aws_region()
 
     source_glob = f"s3://{bucket}/{prefix}/*.parquet" if prefix else f"s3://{bucket}/*.parquet"
-    import duckdb
-
-    con = duckdb.connect(database=":memory:")
-    try:
-        configure_duckdb(con, region)
-        rows = con.execute(AGGREGATION_SQL, [source_glob]).fetchall()
-    finally:
-        con.close()
+    con = get_duckdb_connection(region)
+    rows = run_aggregation(con, source_glob, filters=filters)
 
     duration_ms = round((time.perf_counter() - started) * 1000, 2)
     _json_log(
@@ -261,70 +416,95 @@ def _http_api_summary(event: dict[str, Any], request_id: str | None, started: fl
     }
 
 
+def _process_s3_record(record: dict[str, str], request_id: str | None, started: float) -> dict[str, Any]:
+    bucket = record["bucket"]
+    key = record["key"]
+    etag = record["etag"]
+    source = s3_uri(bucket, key)
+    parquet_key, json_key = result_keys(key, etag)
+    parquet_uri = s3_uri(bucket, parquet_key)
+    json_uri = s3_uri(bucket, json_key)
+    region = resolve_aws_region()
+
+    _json_log(logging.INFO, "received_s3_event", bucket=bucket, key=key, etag=etag, request_id=request_id)
+    _log_stage("after_event_parse", started, request_id=request_id, bucket=bucket, key=key)
+
+    con = get_duckdb_connection(region)
+    _log_stage("after_duckdb_connect", started, request_id=request_id, source_uri=source)
+    try:
+        rows = write_results(con, source, parquet_uri, json_uri)
+        if not isinstance(rows, list):
+            rows = run_aggregation(con, source)
+        _log_stage("after_write_results", started, request_id=request_id, output_parquet=parquet_uri, output_json=json_uri, rows=len(rows))
+    except Exception:
+        try:
+            with _DUCKDB_CONNECTION_LOCK:
+                global _DUCKDB_CONNECTION
+                if _DUCKDB_CONNECTION is not None:
+                    _DUCKDB_CONNECTION.close()
+                    _DUCKDB_CONNECTION = None
+                    global _DUCKDB_CONNECTION_REGION
+                    _DUCKDB_CONNECTION_REGION = None
+        finally:
+            raise
+
+    duration_ms = round((time.perf_counter() - started) * 1000, 2)
+    _json_log(
+        logging.INFO,
+        "query_complete",
+        result_parquet=parquet_uri,
+        result_json=json_uri,
+        group_count=len(rows),
+        duration_ms=duration_ms,
+        request_id=request_id,
+    )
+    _log_stage("before_return", started, request_id=request_id, group_count=len(rows), duration_ms=duration_ms)
+    return {
+        "status": "ok",
+        "bucket": bucket,
+        "source_key": key,
+        "result_parquet": parquet_uri,
+        "result_json": json_uri,
+        "group_count": len(rows),
+        "duration_ms": duration_ms,
+    }
+
+
 def handler(event: dict[str, Any], context: Any) -> dict[str, Any]:
     started = time.perf_counter()
-    request_id = getattr(context, "aws_request_id", None)
+    request_id = getattr(context, "aws_request_id", None) if context else None
 
     try:
         _log_stage("handler.entry", started, request_id=request_id)
 
         if isinstance(event, dict) and "Records" in event:
-            parsed = parse_s3_record(event)
-            bucket = parsed["bucket"]
-            key = parsed["key"]
-            etag = parsed["etag"]
-            source = s3_uri(bucket, key)
-            parquet_key, json_key = result_keys(key, etag)
-            parquet_uri = s3_uri(bucket, parquet_key)
-            json_uri = s3_uri(bucket, json_key)
-            region = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION")
-            if not region:
-                raise RuntimeError("AWS_REGION is not set")
+            valid_records, invalid_records = parse_s3_records(event)
+            results: list[dict[str, Any]] = []
+            failed_records: list[dict[str, Any]] = [
+                {"index": item["index"], "error": item["error"]} for item in invalid_records
+            ]
 
-            _json_log(
-                logging.INFO,
-                "received_s3_event",
-                bucket=bucket,
-                key=key,
-                etag=etag,
-                request_id=request_id,
-            )
-            _log_stage("after_event_parse", started, request_id=request_id, bucket=bucket, key=key)
+            for record in valid_records:
+                try:
+                    processed = _process_s3_record(record, request_id, started)
+                    if isinstance(processed.get("group_count"), int) and processed["group_count"] >= 0:
+                        results.append(processed)
+                    else:
+                        results.append(processed)
+                except Exception as exc:
+                    failed_records.append({"bucket": record["bucket"], "key": record["key"], "error": str(exc)})
 
-            import duckdb
+            if not results and failed_records:
+                raise RuntimeError(failed_records[0]["error"])
 
-            _json_log(logging.INFO, "query_start", source_uri=source)
-            con = duckdb.connect(database=":memory:")
-            _log_stage("after_duckdb_connect", started, request_id=request_id, source_uri=source)
-            try:
-                configure_duckdb(con, region)
-                _log_stage("after_duckdb_config", started, request_id=request_id, source_uri=source)
-                write_results(con, source, parquet_uri, json_uri)
-                _log_stage("after_write_results", started, request_id=request_id, output_parquet=parquet_uri, output_json=json_uri)
-                rows = run_aggregation(con, source)
-                _log_stage("after_run_aggregation", started, request_id=request_id, rows=len(rows))
-            finally:
-                con.close()
+            if len(results) == 1 and not failed_records:
+                return results[0]
 
-            duration_ms = round((time.perf_counter() - started) * 1000, 2)
-            _json_log(
-                logging.INFO,
-                "query_complete",
-                result_parquet=parquet_uri,
-                result_json=json_uri,
-                group_count=len(rows),
-                duration_ms=duration_ms,
-                request_id=request_id,
-            )
-            _log_stage("before_return", started, request_id=request_id, group_count=len(rows), duration_ms=duration_ms)
             return {
-                "status": "ok",
-                "bucket": bucket,
-                "source_key": key,
-                "result_parquet": parquet_uri,
-                "result_json": json_uri,
-                "group_count": len(rows),
-                "duration_ms": duration_ms,
+                "status": "partial_success" if failed_records else "ok",
+                "processed_records": len(results),
+                "failed_records": failed_records,
+                "results": results,
             }
 
         if isinstance(event, dict) and any(key in event for key in ("routeKey", "requestContext", "rawPath", "headers")):
