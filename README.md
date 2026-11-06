@@ -4,6 +4,19 @@ A serverless analytics sample that queries Parquet data in Amazon S3 using DuckD
 
 This project demonstrates a practical pattern for running analytical SQL workloads on low-cost serverless infrastructure while keeping the data set in S3 and avoiding a full database deployment.
 
+## Demo prerequisites
+
+Before running the sample end-to-end, make sure you have:
+
+- Python 3.11 or 3.12 installed locally
+- A working Docker daemon for building the Lambda container image
+- AWS CLI v2 configured with valid credentials for your account
+- Terraform 1.5+ installed
+- An AWS account with permission to create ECR, Lambda, API Gateway, IAM, S3, and CloudWatch resources
+- Access to a target S3 bucket and prefixes that match the sample configuration in `.env.example`
+
+The example assumes you are working from a local machine with AWS access enabled for the same account and region used in the deployment.
+
 ## Architecture
 
 ```mermaid
