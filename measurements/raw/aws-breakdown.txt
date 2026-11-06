@@ -1,0 +1,301 @@
+2026-10-08T03:48:47 START RequestId: 0bcb58e3-aca8-43d8-aafd-47d72494ec64 Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.088Z	0bcb58e3-aca8-43d8-aafd-47d72494ec64	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "0bcb58e3-aca8-43d8-aafd-47d72494ec64"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.088Z	0bcb58e3-aca8-43d8-aafd-47d72494ec64	{"message": "event_error", "error": "Event does not contain Records", "request_id": "0bcb58e3-aca8-43d8-aafd-47d72494ec64"}
+2026-10-08T03:48:47 END RequestId: 0bcb58e3-aca8-43d8-aafd-47d72494ec64
+2026-10-08T03:48:47 REPORT RequestId: 0bcb58e3-aca8-43d8-aafd-47d72494ec64	Duration: 2.53 ms	Billed Duration: 234 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB	Init Duration: 230.92 ms
+2026-10-08T03:48:47 START RequestId: 063ba04b-1da6-4cb5-95b0-534fa1d1d587 Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.350Z	063ba04b-1da6-4cb5-95b0-534fa1d1d587	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "063ba04b-1da6-4cb5-95b0-534fa1d1d587"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.350Z	063ba04b-1da6-4cb5-95b0-534fa1d1d587	{"message": "event_error", "error": "Event does not contain Records", "request_id": "063ba04b-1da6-4cb5-95b0-534fa1d1d587"}
+2026-10-08T03:48:47 END RequestId: 063ba04b-1da6-4cb5-95b0-534fa1d1d587
+2026-10-08T03:48:47 REPORT RequestId: 063ba04b-1da6-4cb5-95b0-534fa1d1d587	Duration: 1.69 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:47 START RequestId: 2d90ebc6-24a5-4b82-bd8c-9feb60831b94 Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.474Z	2d90ebc6-24a5-4b82-bd8c-9feb60831b94	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "2d90ebc6-24a5-4b82-bd8c-9feb60831b94"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.474Z	2d90ebc6-24a5-4b82-bd8c-9feb60831b94	{"message": "event_error", "error": "Event does not contain Records", "request_id": "2d90ebc6-24a5-4b82-bd8c-9feb60831b94"}
+2026-10-08T03:48:47 END RequestId: 2d90ebc6-24a5-4b82-bd8c-9feb60831b94
+2026-10-08T03:48:47 REPORT RequestId: 2d90ebc6-24a5-4b82-bd8c-9feb60831b94	Duration: 1.75 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:47 START RequestId: 4938f171-05d2-4755-9d4b-d75aa105378e Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.614Z	4938f171-05d2-4755-9d4b-d75aa105378e	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "4938f171-05d2-4755-9d4b-d75aa105378e"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.614Z	4938f171-05d2-4755-9d4b-d75aa105378e	{"message": "event_error", "error": "Event does not contain Records", "request_id": "4938f171-05d2-4755-9d4b-d75aa105378e"}
+2026-10-08T03:48:47 END RequestId: 4938f171-05d2-4755-9d4b-d75aa105378e
+2026-10-08T03:48:47 REPORT RequestId: 4938f171-05d2-4755-9d4b-d75aa105378e	Duration: 1.74 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:47 START RequestId: 13b92fa1-79fc-445f-bad6-6d5828db0911 Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.854Z	13b92fa1-79fc-445f-bad6-6d5828db0911	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "13b92fa1-79fc-445f-bad6-6d5828db0911"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.854Z	13b92fa1-79fc-445f-bad6-6d5828db0911	{"message": "event_error", "error": "Event does not contain Records", "request_id": "13b92fa1-79fc-445f-bad6-6d5828db0911"}
+2026-10-08T03:48:47 END RequestId: 13b92fa1-79fc-445f-bad6-6d5828db0911
+2026-10-08T03:48:47 REPORT RequestId: 13b92fa1-79fc-445f-bad6-6d5828db0911	Duration: 1.85 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:47 START RequestId: b4870cf5-f30e-4b49-9271-7dacb7430970 Version: $LATEST
+2026-10-08T03:48:47 [INFO]	2026-10-08T03:48:47.989Z	b4870cf5-f30e-4b49-9271-7dacb7430970	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "b4870cf5-f30e-4b49-9271-7dacb7430970"}
+2026-10-08T03:48:47 [ERROR]	2026-10-08T03:48:47.989Z	b4870cf5-f30e-4b49-9271-7dacb7430970	{"message": "event_error", "error": "Event does not contain Records", "request_id": "b4870cf5-f30e-4b49-9271-7dacb7430970"}
+2026-10-08T03:48:47 END RequestId: b4870cf5-f30e-4b49-9271-7dacb7430970
+2026-10-08T03:48:47 REPORT RequestId: b4870cf5-f30e-4b49-9271-7dacb7430970	Duration: 1.66 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: c4d11c4f-f3e1-4067-9a26-0ae0c8158e19 Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.117Z	c4d11c4f-f3e1-4067-9a26-0ae0c8158e19	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "c4d11c4f-f3e1-4067-9a26-0ae0c8158e19"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.117Z	c4d11c4f-f3e1-4067-9a26-0ae0c8158e19	{"message": "event_error", "error": "Event does not contain Records", "request_id": "c4d11c4f-f3e1-4067-9a26-0ae0c8158e19"}
+2026-10-08T03:48:48 END RequestId: c4d11c4f-f3e1-4067-9a26-0ae0c8158e19
+2026-10-08T03:48:48 REPORT RequestId: c4d11c4f-f3e1-4067-9a26-0ae0c8158e19	Duration: 1.88 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: cd90a403-957a-409a-8536-630d290bdb1d Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.347Z	cd90a403-957a-409a-8536-630d290bdb1d	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "cd90a403-957a-409a-8536-630d290bdb1d"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.347Z	cd90a403-957a-409a-8536-630d290bdb1d	{"message": "event_error", "error": "Event does not contain Records", "request_id": "cd90a403-957a-409a-8536-630d290bdb1d"}
+2026-10-08T03:48:48 END RequestId: cd90a403-957a-409a-8536-630d290bdb1d
+2026-10-08T03:48:48 REPORT RequestId: cd90a403-957a-409a-8536-630d290bdb1d	Duration: 1.74 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: d5711641-0501-4c6b-ac9a-97915d22fbca Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.497Z	d5711641-0501-4c6b-ac9a-97915d22fbca	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "d5711641-0501-4c6b-ac9a-97915d22fbca"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.497Z	d5711641-0501-4c6b-ac9a-97915d22fbca	{"message": "event_error", "error": "Event does not contain Records", "request_id": "d5711641-0501-4c6b-ac9a-97915d22fbca"}
+2026-10-08T03:48:48 END RequestId: d5711641-0501-4c6b-ac9a-97915d22fbca
+2026-10-08T03:48:48 REPORT RequestId: d5711641-0501-4c6b-ac9a-97915d22fbca	Duration: 1.80 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: e6e94dfc-ba8f-438d-857a-272c5433efa6 Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.636Z	e6e94dfc-ba8f-438d-857a-272c5433efa6	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "e6e94dfc-ba8f-438d-857a-272c5433efa6"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.636Z	e6e94dfc-ba8f-438d-857a-272c5433efa6	{"message": "event_error", "error": "Event does not contain Records", "request_id": "e6e94dfc-ba8f-438d-857a-272c5433efa6"}
+2026-10-08T03:48:48 END RequestId: e6e94dfc-ba8f-438d-857a-272c5433efa6
+2026-10-08T03:48:48 REPORT RequestId: e6e94dfc-ba8f-438d-857a-272c5433efa6	Duration: 1.76 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: c9109d55-42bd-492c-b41d-fff67b2b9bdf Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.783Z	c9109d55-42bd-492c-b41d-fff67b2b9bdf	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "c9109d55-42bd-492c-b41d-fff67b2b9bdf"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.783Z	c9109d55-42bd-492c-b41d-fff67b2b9bdf	{"message": "event_error", "error": "Event does not contain Records", "request_id": "c9109d55-42bd-492c-b41d-fff67b2b9bdf"}
+2026-10-08T03:48:48 END RequestId: c9109d55-42bd-492c-b41d-fff67b2b9bdf
+2026-10-08T03:48:48 REPORT RequestId: c9109d55-42bd-492c-b41d-fff67b2b9bdf	Duration: 1.70 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:48 START RequestId: 6b508a58-f44c-420e-b81d-4e11295d1b65 Version: $LATEST
+2026-10-08T03:48:48 [INFO]	2026-10-08T03:48:48.911Z	6b508a58-f44c-420e-b81d-4e11295d1b65	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "6b508a58-f44c-420e-b81d-4e11295d1b65"}
+2026-10-08T03:48:48 [ERROR]	2026-10-08T03:48:48.911Z	6b508a58-f44c-420e-b81d-4e11295d1b65	{"message": "event_error", "error": "Event does not contain Records", "request_id": "6b508a58-f44c-420e-b81d-4e11295d1b65"}
+2026-10-08T03:48:48 END RequestId: 6b508a58-f44c-420e-b81d-4e11295d1b65
+2026-10-08T03:48:48 REPORT RequestId: 6b508a58-f44c-420e-b81d-4e11295d1b65	Duration: 1.66 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: 83b9e6f3-3ed0-4b21-bd79-aa437b650363 Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.042Z	83b9e6f3-3ed0-4b21-bd79-aa437b650363	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "83b9e6f3-3ed0-4b21-bd79-aa437b650363"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.042Z	83b9e6f3-3ed0-4b21-bd79-aa437b650363	{"message": "event_error", "error": "Event does not contain Records", "request_id": "83b9e6f3-3ed0-4b21-bd79-aa437b650363"}
+2026-10-08T03:48:49 END RequestId: 83b9e6f3-3ed0-4b21-bd79-aa437b650363
+2026-10-08T03:48:49 REPORT RequestId: 83b9e6f3-3ed0-4b21-bd79-aa437b650363	Duration: 1.61 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: 93567418-c986-486d-b272-e4a9a8d3fc74 Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.175Z	93567418-c986-486d-b272-e4a9a8d3fc74	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "93567418-c986-486d-b272-e4a9a8d3fc74"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.175Z	93567418-c986-486d-b272-e4a9a8d3fc74	{"message": "event_error", "error": "Event does not contain Records", "request_id": "93567418-c986-486d-b272-e4a9a8d3fc74"}
+2026-10-08T03:48:49 END RequestId: 93567418-c986-486d-b272-e4a9a8d3fc74
+2026-10-08T03:48:49 REPORT RequestId: 93567418-c986-486d-b272-e4a9a8d3fc74	Duration: 1.67 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: 03449dd1-23bd-4ebd-8940-8762c443e92a Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.289Z	03449dd1-23bd-4ebd-8940-8762c443e92a	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "03449dd1-23bd-4ebd-8940-8762c443e92a"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.289Z	03449dd1-23bd-4ebd-8940-8762c443e92a	{"message": "event_error", "error": "Event does not contain Records", "request_id": "03449dd1-23bd-4ebd-8940-8762c443e92a"}
+2026-10-08T03:48:49 END RequestId: 03449dd1-23bd-4ebd-8940-8762c443e92a
+2026-10-08T03:48:49 REPORT RequestId: 03449dd1-23bd-4ebd-8940-8762c443e92a	Duration: 1.65 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: fe4e28c2-433b-48cd-b88c-1c6028b88bba Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.420Z	fe4e28c2-433b-48cd-b88c-1c6028b88bba	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "fe4e28c2-433b-48cd-b88c-1c6028b88bba"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.420Z	fe4e28c2-433b-48cd-b88c-1c6028b88bba	{"message": "event_error", "error": "Event does not contain Records", "request_id": "fe4e28c2-433b-48cd-b88c-1c6028b88bba"}
+2026-10-08T03:48:49 END RequestId: fe4e28c2-433b-48cd-b88c-1c6028b88bba
+2026-10-08T03:48:49 REPORT RequestId: fe4e28c2-433b-48cd-b88c-1c6028b88bba	Duration: 1.69 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: ab1d50f2-c6ac-4343-97ba-e224166dd9a0 Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.553Z	ab1d50f2-c6ac-4343-97ba-e224166dd9a0	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "ab1d50f2-c6ac-4343-97ba-e224166dd9a0"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.553Z	ab1d50f2-c6ac-4343-97ba-e224166dd9a0	{"message": "event_error", "error": "Event does not contain Records", "request_id": "ab1d50f2-c6ac-4343-97ba-e224166dd9a0"}
+2026-10-08T03:48:49 END RequestId: ab1d50f2-c6ac-4343-97ba-e224166dd9a0
+2026-10-08T03:48:49 REPORT RequestId: ab1d50f2-c6ac-4343-97ba-e224166dd9a0	Duration: 1.68 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: b372fec3-03ba-4949-8c47-0c35e133c17e Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.737Z	b372fec3-03ba-4949-8c47-0c35e133c17e	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "b372fec3-03ba-4949-8c47-0c35e133c17e"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.737Z	b372fec3-03ba-4949-8c47-0c35e133c17e	{"message": "event_error", "error": "Event does not contain Records", "request_id": "b372fec3-03ba-4949-8c47-0c35e133c17e"}
+2026-10-08T03:48:49 END RequestId: b372fec3-03ba-4949-8c47-0c35e133c17e
+2026-10-08T03:48:49 REPORT RequestId: b372fec3-03ba-4949-8c47-0c35e133c17e	Duration: 1.67 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: 1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.860Z	1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.860Z	1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf	{"message": "event_error", "error": "Event does not contain Records", "request_id": "1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf"}
+2026-10-08T03:48:49 END RequestId: 1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf
+2026-10-08T03:48:49 REPORT RequestId: 1e4f8fd6-2793-4ee4-8263-8fad2a19c8cf	Duration: 1.70 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:49 START RequestId: ef048fab-01ad-4849-9016-ee83118e81d7 Version: $LATEST
+2026-10-08T03:48:49 [INFO]	2026-10-08T03:48:49.995Z	ef048fab-01ad-4849-9016-ee83118e81d7	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "ef048fab-01ad-4849-9016-ee83118e81d7"}
+2026-10-08T03:48:49 [ERROR]	2026-10-08T03:48:49.995Z	ef048fab-01ad-4849-9016-ee83118e81d7	{"message": "event_error", "error": "Event does not contain Records", "request_id": "ef048fab-01ad-4849-9016-ee83118e81d7"}
+2026-10-08T03:48:49 END RequestId: ef048fab-01ad-4849-9016-ee83118e81d7
+2026-10-08T03:48:49 REPORT RequestId: ef048fab-01ad-4849-9016-ee83118e81d7	Duration: 1.65 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:50 START RequestId: 4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3 Version: $LATEST
+2026-10-08T03:48:50 [INFO]	2026-10-08T03:48:50.132Z	4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3"}
+2026-10-08T03:48:50 [ERROR]	2026-10-08T03:48:50.132Z	4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3	{"message": "event_error", "error": "Event does not contain Records", "request_id": "4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3"}
+2026-10-08T03:48:50 END RequestId: 4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3
+2026-10-08T03:48:50 REPORT RequestId: 4aa8c0c2-123c-4aa7-b7cc-18f625dcd8e3	Duration: 1.54 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:50 START RequestId: 0cf0ca56-5db7-4bd7-8b79-b430b6991819 Version: $LATEST
+2026-10-08T03:48:50 [INFO]	2026-10-08T03:48:50.262Z	0cf0ca56-5db7-4bd7-8b79-b430b6991819	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "0cf0ca56-5db7-4bd7-8b79-b430b6991819"}
+2026-10-08T03:48:50 [ERROR]	2026-10-08T03:48:50.262Z	0cf0ca56-5db7-4bd7-8b79-b430b6991819	{"message": "event_error", "error": "Event does not contain Records", "request_id": "0cf0ca56-5db7-4bd7-8b79-b430b6991819"}
+2026-10-08T03:48:50 END RequestId: 0cf0ca56-5db7-4bd7-8b79-b430b6991819
+2026-10-08T03:48:50 REPORT RequestId: 0cf0ca56-5db7-4bd7-8b79-b430b6991819	Duration: 1.67 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:50 START RequestId: 723183ca-13d0-40f4-97dc-e9275fd423f9 Version: $LATEST
+2026-10-08T03:48:50 [INFO]	2026-10-08T03:48:50.383Z	723183ca-13d0-40f4-97dc-e9275fd423f9	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "723183ca-13d0-40f4-97dc-e9275fd423f9"}
+2026-10-08T03:48:50 [ERROR]	2026-10-08T03:48:50.383Z	723183ca-13d0-40f4-97dc-e9275fd423f9	{"message": "event_error", "error": "Event does not contain Records", "request_id": "723183ca-13d0-40f4-97dc-e9275fd423f9"}
+2026-10-08T03:48:50 END RequestId: 723183ca-13d0-40f4-97dc-e9275fd423f9
+2026-10-08T03:48:50 REPORT RequestId: 723183ca-13d0-40f4-97dc-e9275fd423f9	Duration: 1.66 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:50 START RequestId: b1817a66-39d6-4f3d-977a-49e79d0b8309 Version: $LATEST
+2026-10-08T03:48:50 [INFO]	2026-10-08T03:48:50.517Z	b1817a66-39d6-4f3d-977a-49e79d0b8309	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "b1817a66-39d6-4f3d-977a-49e79d0b8309"}
+2026-10-08T03:48:50 [ERROR]	2026-10-08T03:48:50.517Z	b1817a66-39d6-4f3d-977a-49e79d0b8309	{"message": "event_error", "error": "Event does not contain Records", "request_id": "b1817a66-39d6-4f3d-977a-49e79d0b8309"}
+2026-10-08T03:48:50 END RequestId: b1817a66-39d6-4f3d-977a-49e79d0b8309
+2026-10-08T03:48:50 REPORT RequestId: b1817a66-39d6-4f3d-977a-49e79d0b8309	Duration: 1.64 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:48:50 START RequestId: 4a832c8c-8e52-4882-ad08-aed02aec674e Version: $LATEST
+2026-10-08T03:48:50 [INFO]	2026-10-08T03:48:50.655Z	4a832c8c-8e52-4882-ad08-aed02aec674e	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "4a832c8c-8e52-4882-ad08-aed02aec674e"}
+2026-10-08T03:48:50 [ERROR]	2026-10-08T03:48:50.655Z	4a832c8c-8e52-4882-ad08-aed02aec674e	{"message": "event_error", "error": "Event does not contain Records", "request_id": "4a832c8c-8e52-4882-ad08-aed02aec674e"}
+2026-10-08T03:48:50 END RequestId: 4a832c8c-8e52-4882-ad08-aed02aec674e
+2026-10-08T03:48:50 REPORT RequestId: 4a832c8c-8e52-4882-ad08-aed02aec674e	Duration: 1.56 ms	Billed Duration: 2 ms	Memory Size: 2048 MB	Max Memory Used: 37 MB
+2026-10-08T03:52:06 START RequestId: 27c3672a-911c-48e9-ab11-08f7d12bb7f1 Version: $LATEST
+2026-10-08T03:52:06 [INFO]	2026-10-08T03:52:06.013Z	27c3672a-911c-48e9-ab11-08f7d12bb7f1	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "27c3672a-911c-48e9-ab11-08f7d12bb7f1"}
+2026-10-08T03:52:06 [INFO]	2026-10-08T03:52:06.014Z	27c3672a-911c-48e9-ab11-08f7d12bb7f1	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "27c3672a-911c-48e9-ab11-08f7d12bb7f1"}
+2026-10-08T03:52:06 [INFO]	2026-10-08T03:52:06.014Z	27c3672a-911c-48e9-ab11-08f7d12bb7f1	{"message": "request.params", "params": {}, "request_id": "27c3672a-911c-48e9-ab11-08f7d12bb7f1"}
+2026-10-08T03:52:06 [INFO]	2026-10-08T03:52:06.014Z	27c3672a-911c-48e9-ab11-08f7d12bb7f1	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "27c3672a-911c-48e9-ab11-08f7d12bb7f1"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.063Z	27c3672a-911c-48e9-ab11-08f7d12bb7f1	{"message": "query.completed", "duration": 2.04929, "rows": 20, "request_id": "27c3672a-911c-48e9-ab11-08f7d12bb7f1"}
+2026-10-08T03:52:08 END RequestId: 27c3672a-911c-48e9-ab11-08f7d12bb7f1
+2026-10-08T03:52:08 REPORT RequestId: 27c3672a-911c-48e9-ab11-08f7d12bb7f1	Duration: 2052.61 ms	Billed Duration: 2291 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB	Init Duration: 237.97 ms
+2026-10-08T03:52:08 START RequestId: 71613738-8859-4e94-9e59-71bfd44d23f9 Version: $LATEST
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.209Z	71613738-8859-4e94-9e59-71bfd44d23f9	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "71613738-8859-4e94-9e59-71bfd44d23f9"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.209Z	71613738-8859-4e94-9e59-71bfd44d23f9	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "71613738-8859-4e94-9e59-71bfd44d23f9"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.209Z	71613738-8859-4e94-9e59-71bfd44d23f9	{"message": "request.params", "params": {}, "request_id": "71613738-8859-4e94-9e59-71bfd44d23f9"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.209Z	71613738-8859-4e94-9e59-71bfd44d23f9	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "71613738-8859-4e94-9e59-71bfd44d23f9"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.629Z	71613738-8859-4e94-9e59-71bfd44d23f9	{"message": "query.completed", "duration": 0.42021, "rows": 20, "request_id": "71613738-8859-4e94-9e59-71bfd44d23f9"}
+2026-10-08T03:52:08 END RequestId: 71613738-8859-4e94-9e59-71bfd44d23f9
+2026-10-08T03:52:08 REPORT RequestId: 71613738-8859-4e94-9e59-71bfd44d23f9	Duration: 422.35 ms	Billed Duration: 423 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:08 START RequestId: a084d8a8-2e79-4aa0-9b11-6d0954e07298 Version: $LATEST
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.940Z	a084d8a8-2e79-4aa0-9b11-6d0954e07298	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "a084d8a8-2e79-4aa0-9b11-6d0954e07298"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.940Z	a084d8a8-2e79-4aa0-9b11-6d0954e07298	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "a084d8a8-2e79-4aa0-9b11-6d0954e07298"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.940Z	a084d8a8-2e79-4aa0-9b11-6d0954e07298	{"message": "request.params", "params": {}, "request_id": "a084d8a8-2e79-4aa0-9b11-6d0954e07298"}
+2026-10-08T03:52:08 [INFO]	2026-10-08T03:52:08.940Z	a084d8a8-2e79-4aa0-9b11-6d0954e07298	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "a084d8a8-2e79-4aa0-9b11-6d0954e07298"}
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.331Z	a084d8a8-2e79-4aa0-9b11-6d0954e07298	{"message": "query.completed", "duration": 0.39076, "rows": 20, "request_id": "a084d8a8-2e79-4aa0-9b11-6d0954e07298"}
+2026-10-08T03:52:09 END RequestId: a084d8a8-2e79-4aa0-9b11-6d0954e07298
+2026-10-08T03:52:09 REPORT RequestId: a084d8a8-2e79-4aa0-9b11-6d0954e07298	Duration: 393.01 ms	Billed Duration: 394 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:09 START RequestId: c2cef8de-7e08-439b-910c-2fd2a409b1de Version: $LATEST
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.459Z	c2cef8de-7e08-439b-910c-2fd2a409b1de	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "c2cef8de-7e08-439b-910c-2fd2a409b1de"}
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.460Z	c2cef8de-7e08-439b-910c-2fd2a409b1de	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "c2cef8de-7e08-439b-910c-2fd2a409b1de"}
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.460Z	c2cef8de-7e08-439b-910c-2fd2a409b1de	{"message": "request.params", "params": {}, "request_id": "c2cef8de-7e08-439b-910c-2fd2a409b1de"}
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.460Z	c2cef8de-7e08-439b-910c-2fd2a409b1de	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "c2cef8de-7e08-439b-910c-2fd2a409b1de"}
+2026-10-08T03:52:09 [INFO]	2026-10-08T03:52:09.873Z	c2cef8de-7e08-439b-910c-2fd2a409b1de	{"message": "query.completed", "duration": 0.41379000000000005, "rows": 20, "request_id": "c2cef8de-7e08-439b-910c-2fd2a409b1de"}
+2026-10-08T03:52:09 END RequestId: c2cef8de-7e08-439b-910c-2fd2a409b1de
+2026-10-08T03:52:09 REPORT RequestId: c2cef8de-7e08-439b-910c-2fd2a409b1de	Duration: 415.95 ms	Billed Duration: 416 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:12 START RequestId: c53460b0-e36f-4027-b45c-d24fdc0422e1 Version: $LATEST
+2026-10-08T03:52:12 [INFO]	2026-10-08T03:52:12.379Z	c53460b0-e36f-4027-b45c-d24fdc0422e1	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "c53460b0-e36f-4027-b45c-d24fdc0422e1"}
+2026-10-08T03:52:12 [INFO]	2026-10-08T03:52:12.379Z	c53460b0-e36f-4027-b45c-d24fdc0422e1	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "c53460b0-e36f-4027-b45c-d24fdc0422e1"}
+2026-10-08T03:52:12 [INFO]	2026-10-08T03:52:12.380Z	c53460b0-e36f-4027-b45c-d24fdc0422e1	{"message": "request.params", "params": {}, "request_id": "c53460b0-e36f-4027-b45c-d24fdc0422e1"}
+2026-10-08T03:52:12 [INFO]	2026-10-08T03:52:12.380Z	c53460b0-e36f-4027-b45c-d24fdc0422e1	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "c53460b0-e36f-4027-b45c-d24fdc0422e1"}
+2026-10-08T03:52:12 [INFO]	2026-10-08T03:52:12.811Z	c53460b0-e36f-4027-b45c-d24fdc0422e1	{"message": "query.completed", "duration": 0.43151, "rows": 20, "request_id": "c53460b0-e36f-4027-b45c-d24fdc0422e1"}
+2026-10-08T03:52:12 END RequestId: c53460b0-e36f-4027-b45c-d24fdc0422e1
+2026-10-08T03:52:12 REPORT RequestId: c53460b0-e36f-4027-b45c-d24fdc0422e1	Duration: 433.95 ms	Billed Duration: 434 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:13 START RequestId: 6ebf56e3-7fb7-4a62-8cb5-7799f865b171 Version: $LATEST
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.076Z	6ebf56e3-7fb7-4a62-8cb5-7799f865b171	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "6ebf56e3-7fb7-4a62-8cb5-7799f865b171"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.076Z	6ebf56e3-7fb7-4a62-8cb5-7799f865b171	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "6ebf56e3-7fb7-4a62-8cb5-7799f865b171"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.076Z	6ebf56e3-7fb7-4a62-8cb5-7799f865b171	{"message": "request.params", "params": {}, "request_id": "6ebf56e3-7fb7-4a62-8cb5-7799f865b171"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.076Z	6ebf56e3-7fb7-4a62-8cb5-7799f865b171	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "6ebf56e3-7fb7-4a62-8cb5-7799f865b171"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.484Z	6ebf56e3-7fb7-4a62-8cb5-7799f865b171	{"message": "query.completed", "duration": 0.40829000000000004, "rows": 20, "request_id": "6ebf56e3-7fb7-4a62-8cb5-7799f865b171"}
+2026-10-08T03:52:13 END RequestId: 6ebf56e3-7fb7-4a62-8cb5-7799f865b171
+2026-10-08T03:52:13 REPORT RequestId: 6ebf56e3-7fb7-4a62-8cb5-7799f865b171	Duration: 410.39 ms	Billed Duration: 411 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:13 START RequestId: 1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8 Version: $LATEST
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.686Z	1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.686Z	1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.686Z	1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	{"message": "request.params", "params": {}, "request_id": "1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8"}
+2026-10-08T03:52:13 [INFO]	2026-10-08T03:52:13.686Z	1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.095Z	1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	{"message": "query.completed", "duration": 0.40889, "rows": 20, "request_id": "1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8"}
+2026-10-08T03:52:14 END RequestId: 1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8
+2026-10-08T03:52:14 REPORT RequestId: 1b1fdc7c-2fee-4cf4-aa4b-ed1d596ab7b8	Duration: 410.93 ms	Billed Duration: 411 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:14 START RequestId: 1b790073-a1f1-4db3-b5e0-44d7e7db490c Version: $LATEST
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.226Z	1b790073-a1f1-4db3-b5e0-44d7e7db490c	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "1b790073-a1f1-4db3-b5e0-44d7e7db490c"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.227Z	1b790073-a1f1-4db3-b5e0-44d7e7db490c	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "1b790073-a1f1-4db3-b5e0-44d7e7db490c"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.227Z	1b790073-a1f1-4db3-b5e0-44d7e7db490c	{"message": "request.params", "params": {}, "request_id": "1b790073-a1f1-4db3-b5e0-44d7e7db490c"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.227Z	1b790073-a1f1-4db3-b5e0-44d7e7db490c	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "1b790073-a1f1-4db3-b5e0-44d7e7db490c"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.646Z	1b790073-a1f1-4db3-b5e0-44d7e7db490c	{"message": "query.completed", "duration": 0.41984, "rows": 20, "request_id": "1b790073-a1f1-4db3-b5e0-44d7e7db490c"}
+2026-10-08T03:52:14 END RequestId: 1b790073-a1f1-4db3-b5e0-44d7e7db490c
+2026-10-08T03:52:14 REPORT RequestId: 1b790073-a1f1-4db3-b5e0-44d7e7db490c	Duration: 421.94 ms	Billed Duration: 422 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:14 START RequestId: 2b03a75a-3ecc-48b1-b223-bab78e7d3b28 Version: $LATEST
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.799Z	2b03a75a-3ecc-48b1-b223-bab78e7d3b28	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "2b03a75a-3ecc-48b1-b223-bab78e7d3b28"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.799Z	2b03a75a-3ecc-48b1-b223-bab78e7d3b28	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "2b03a75a-3ecc-48b1-b223-bab78e7d3b28"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.799Z	2b03a75a-3ecc-48b1-b223-bab78e7d3b28	{"message": "request.params", "params": {}, "request_id": "2b03a75a-3ecc-48b1-b223-bab78e7d3b28"}
+2026-10-08T03:52:14 [INFO]	2026-10-08T03:52:14.799Z	2b03a75a-3ecc-48b1-b223-bab78e7d3b28	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "2b03a75a-3ecc-48b1-b223-bab78e7d3b28"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.203Z	2b03a75a-3ecc-48b1-b223-bab78e7d3b28	{"message": "query.completed", "duration": 0.40358999999999995, "rows": 20, "request_id": "2b03a75a-3ecc-48b1-b223-bab78e7d3b28"}
+2026-10-08T03:52:15 END RequestId: 2b03a75a-3ecc-48b1-b223-bab78e7d3b28
+2026-10-08T03:52:15 REPORT RequestId: 2b03a75a-3ecc-48b1-b223-bab78e7d3b28	Duration: 405.78 ms	Billed Duration: 406 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:15 START RequestId: 61d06056-22da-4b87-9a3d-d4989e4df22f Version: $LATEST
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.416Z	61d06056-22da-4b87-9a3d-d4989e4df22f	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "61d06056-22da-4b87-9a3d-d4989e4df22f"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.416Z	61d06056-22da-4b87-9a3d-d4989e4df22f	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "61d06056-22da-4b87-9a3d-d4989e4df22f"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.416Z	61d06056-22da-4b87-9a3d-d4989e4df22f	{"message": "request.params", "params": {}, "request_id": "61d06056-22da-4b87-9a3d-d4989e4df22f"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.416Z	61d06056-22da-4b87-9a3d-d4989e4df22f	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "61d06056-22da-4b87-9a3d-d4989e4df22f"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.824Z	61d06056-22da-4b87-9a3d-d4989e4df22f	{"message": "query.completed", "duration": 0.40835000000000005, "rows": 20, "request_id": "61d06056-22da-4b87-9a3d-d4989e4df22f"}
+2026-10-08T03:52:15 END RequestId: 61d06056-22da-4b87-9a3d-d4989e4df22f
+2026-10-08T03:52:15 REPORT RequestId: 61d06056-22da-4b87-9a3d-d4989e4df22f	Duration: 410.61 ms	Billed Duration: 411 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:15 START RequestId: 29994e22-7a3c-49c3-a171-de82291c6444 Version: $LATEST
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.963Z	29994e22-7a3c-49c3-a171-de82291c6444	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "29994e22-7a3c-49c3-a171-de82291c6444"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.963Z	29994e22-7a3c-49c3-a171-de82291c6444	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "29994e22-7a3c-49c3-a171-de82291c6444"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.963Z	29994e22-7a3c-49c3-a171-de82291c6444	{"message": "request.params", "params": {}, "request_id": "29994e22-7a3c-49c3-a171-de82291c6444"}
+2026-10-08T03:52:15 [INFO]	2026-10-08T03:52:15.963Z	29994e22-7a3c-49c3-a171-de82291c6444	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "29994e22-7a3c-49c3-a171-de82291c6444"}
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.372Z	29994e22-7a3c-49c3-a171-de82291c6444	{"message": "query.completed", "duration": 0.40863, "rows": 20, "request_id": "29994e22-7a3c-49c3-a171-de82291c6444"}
+2026-10-08T03:52:16 END RequestId: 29994e22-7a3c-49c3-a171-de82291c6444
+2026-10-08T03:52:16 REPORT RequestId: 29994e22-7a3c-49c3-a171-de82291c6444	Duration: 410.85 ms	Billed Duration: 411 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:16 START RequestId: 5dd6791b-c161-4733-956c-d413b44db636 Version: $LATEST
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.511Z	5dd6791b-c161-4733-956c-d413b44db636	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "5dd6791b-c161-4733-956c-d413b44db636"}
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.511Z	5dd6791b-c161-4733-956c-d413b44db636	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "5dd6791b-c161-4733-956c-d413b44db636"}
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.511Z	5dd6791b-c161-4733-956c-d413b44db636	{"message": "request.params", "params": {}, "request_id": "5dd6791b-c161-4733-956c-d413b44db636"}
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.512Z	5dd6791b-c161-4733-956c-d413b44db636	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "5dd6791b-c161-4733-956c-d413b44db636"}
+2026-10-08T03:52:16 [INFO]	2026-10-08T03:52:16.926Z	5dd6791b-c161-4733-956c-d413b44db636	{"message": "query.completed", "duration": 0.41473000000000004, "rows": 20, "request_id": "5dd6791b-c161-4733-956c-d413b44db636"}
+2026-10-08T03:52:16 END RequestId: 5dd6791b-c161-4733-956c-d413b44db636
+2026-10-08T03:52:16 REPORT RequestId: 5dd6791b-c161-4733-956c-d413b44db636	Duration: 416.81 ms	Billed Duration: 417 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:17 START RequestId: 7477d88f-ed9d-4775-8a97-f0a003877002 Version: $LATEST
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.138Z	7477d88f-ed9d-4775-8a97-f0a003877002	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "7477d88f-ed9d-4775-8a97-f0a003877002"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.138Z	7477d88f-ed9d-4775-8a97-f0a003877002	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "7477d88f-ed9d-4775-8a97-f0a003877002"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.138Z	7477d88f-ed9d-4775-8a97-f0a003877002	{"message": "request.params", "params": {}, "request_id": "7477d88f-ed9d-4775-8a97-f0a003877002"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.138Z	7477d88f-ed9d-4775-8a97-f0a003877002	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "7477d88f-ed9d-4775-8a97-f0a003877002"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.541Z	7477d88f-ed9d-4775-8a97-f0a003877002	{"message": "query.completed", "duration": 0.40303, "rows": 20, "request_id": "7477d88f-ed9d-4775-8a97-f0a003877002"}
+2026-10-08T03:52:17 END RequestId: 7477d88f-ed9d-4775-8a97-f0a003877002
+2026-10-08T03:52:17 REPORT RequestId: 7477d88f-ed9d-4775-8a97-f0a003877002	Duration: 405.10 ms	Billed Duration: 406 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:17 START RequestId: 485eedbb-4761-4aa9-a407-c5626a728e55 Version: $LATEST
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.680Z	485eedbb-4761-4aa9-a407-c5626a728e55	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "485eedbb-4761-4aa9-a407-c5626a728e55"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.680Z	485eedbb-4761-4aa9-a407-c5626a728e55	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "485eedbb-4761-4aa9-a407-c5626a728e55"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.680Z	485eedbb-4761-4aa9-a407-c5626a728e55	{"message": "request.params", "params": {}, "request_id": "485eedbb-4761-4aa9-a407-c5626a728e55"}
+2026-10-08T03:52:17 [INFO]	2026-10-08T03:52:17.680Z	485eedbb-4761-4aa9-a407-c5626a728e55	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "485eedbb-4761-4aa9-a407-c5626a728e55"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.103Z	485eedbb-4761-4aa9-a407-c5626a728e55	{"message": "query.completed", "duration": 0.42258, "rows": 20, "request_id": "485eedbb-4761-4aa9-a407-c5626a728e55"}
+2026-10-08T03:52:18 END RequestId: 485eedbb-4761-4aa9-a407-c5626a728e55
+2026-10-08T03:52:18 REPORT RequestId: 485eedbb-4761-4aa9-a407-c5626a728e55	Duration: 424.61 ms	Billed Duration: 425 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:18 START RequestId: a55442ff-a918-4c77-94c3-94908ccbfbc6 Version: $LATEST
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.285Z	a55442ff-a918-4c77-94c3-94908ccbfbc6	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "a55442ff-a918-4c77-94c3-94908ccbfbc6"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.285Z	a55442ff-a918-4c77-94c3-94908ccbfbc6	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "a55442ff-a918-4c77-94c3-94908ccbfbc6"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.285Z	a55442ff-a918-4c77-94c3-94908ccbfbc6	{"message": "request.params", "params": {}, "request_id": "a55442ff-a918-4c77-94c3-94908ccbfbc6"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.285Z	a55442ff-a918-4c77-94c3-94908ccbfbc6	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "a55442ff-a918-4c77-94c3-94908ccbfbc6"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.704Z	a55442ff-a918-4c77-94c3-94908ccbfbc6	{"message": "query.completed", "duration": 0.41906, "rows": 20, "request_id": "a55442ff-a918-4c77-94c3-94908ccbfbc6"}
+2026-10-08T03:52:18 END RequestId: a55442ff-a918-4c77-94c3-94908ccbfbc6
+2026-10-08T03:52:18 REPORT RequestId: a55442ff-a918-4c77-94c3-94908ccbfbc6	Duration: 421.15 ms	Billed Duration: 422 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:18 START RequestId: 6538f5d0-4909-47b7-945f-e1b34a1d6f14 Version: $LATEST
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.916Z	6538f5d0-4909-47b7-945f-e1b34a1d6f14	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "6538f5d0-4909-47b7-945f-e1b34a1d6f14"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.916Z	6538f5d0-4909-47b7-945f-e1b34a1d6f14	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "6538f5d0-4909-47b7-945f-e1b34a1d6f14"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.916Z	6538f5d0-4909-47b7-945f-e1b34a1d6f14	{"message": "request.params", "params": {}, "request_id": "6538f5d0-4909-47b7-945f-e1b34a1d6f14"}
+2026-10-08T03:52:18 [INFO]	2026-10-08T03:52:18.916Z	6538f5d0-4909-47b7-945f-e1b34a1d6f14	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "6538f5d0-4909-47b7-945f-e1b34a1d6f14"}
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.318Z	6538f5d0-4909-47b7-945f-e1b34a1d6f14	{"message": "query.completed", "duration": 0.40218, "rows": 20, "request_id": "6538f5d0-4909-47b7-945f-e1b34a1d6f14"}
+2026-10-08T03:52:19 END RequestId: 6538f5d0-4909-47b7-945f-e1b34a1d6f14
+2026-10-08T03:52:19 REPORT RequestId: 6538f5d0-4909-47b7-945f-e1b34a1d6f14	Duration: 404.20 ms	Billed Duration: 405 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:19 START RequestId: 067e8bf0-8aef-458c-a8e2-b8c9f991377a Version: $LATEST
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.540Z	067e8bf0-8aef-458c-a8e2-b8c9f991377a	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "067e8bf0-8aef-458c-a8e2-b8c9f991377a"}
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.540Z	067e8bf0-8aef-458c-a8e2-b8c9f991377a	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "067e8bf0-8aef-458c-a8e2-b8c9f991377a"}
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.540Z	067e8bf0-8aef-458c-a8e2-b8c9f991377a	{"message": "request.params", "params": {}, "request_id": "067e8bf0-8aef-458c-a8e2-b8c9f991377a"}
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.540Z	067e8bf0-8aef-458c-a8e2-b8c9f991377a	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "067e8bf0-8aef-458c-a8e2-b8c9f991377a"}
+2026-10-08T03:52:19 [INFO]	2026-10-08T03:52:19.986Z	067e8bf0-8aef-458c-a8e2-b8c9f991377a	{"message": "query.completed", "duration": 0.44587, "rows": 20, "request_id": "067e8bf0-8aef-458c-a8e2-b8c9f991377a"}
+2026-10-08T03:52:19 END RequestId: 067e8bf0-8aef-458c-a8e2-b8c9f991377a
+2026-10-08T03:52:19 REPORT RequestId: 067e8bf0-8aef-458c-a8e2-b8c9f991377a	Duration: 447.96 ms	Billed Duration: 448 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:20 START RequestId: 72cfb136-0dd6-4a25-81c1-332c9f2d5493 Version: $LATEST
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.209Z	72cfb136-0dd6-4a25-81c1-332c9f2d5493	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "72cfb136-0dd6-4a25-81c1-332c9f2d5493"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.209Z	72cfb136-0dd6-4a25-81c1-332c9f2d5493	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "72cfb136-0dd6-4a25-81c1-332c9f2d5493"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.209Z	72cfb136-0dd6-4a25-81c1-332c9f2d5493	{"message": "request.params", "params": {}, "request_id": "72cfb136-0dd6-4a25-81c1-332c9f2d5493"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.209Z	72cfb136-0dd6-4a25-81c1-332c9f2d5493	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "72cfb136-0dd6-4a25-81c1-332c9f2d5493"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.588Z	72cfb136-0dd6-4a25-81c1-332c9f2d5493	{"message": "query.completed", "duration": 0.37918, "rows": 20, "request_id": "72cfb136-0dd6-4a25-81c1-332c9f2d5493"}
+2026-10-08T03:52:20 END RequestId: 72cfb136-0dd6-4a25-81c1-332c9f2d5493
+2026-10-08T03:52:20 REPORT RequestId: 72cfb136-0dd6-4a25-81c1-332c9f2d5493	Duration: 381.19 ms	Billed Duration: 382 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:20 START RequestId: 362921f6-f805-4df7-8773-8ceb005e9941 Version: $LATEST
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.734Z	362921f6-f805-4df7-8773-8ceb005e9941	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "362921f6-f805-4df7-8773-8ceb005e9941"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.734Z	362921f6-f805-4df7-8773-8ceb005e9941	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "362921f6-f805-4df7-8773-8ceb005e9941"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.734Z	362921f6-f805-4df7-8773-8ceb005e9941	{"message": "request.params", "params": {}, "request_id": "362921f6-f805-4df7-8773-8ceb005e9941"}
+2026-10-08T03:52:20 [INFO]	2026-10-08T03:52:20.734Z	362921f6-f805-4df7-8773-8ceb005e9941	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "362921f6-f805-4df7-8773-8ceb005e9941"}
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.140Z	362921f6-f805-4df7-8773-8ceb005e9941	{"message": "query.completed", "duration": 0.40597000000000005, "rows": 20, "request_id": "362921f6-f805-4df7-8773-8ceb005e9941"}
+2026-10-08T03:52:21 END RequestId: 362921f6-f805-4df7-8773-8ceb005e9941
+2026-10-08T03:52:21 REPORT RequestId: 362921f6-f805-4df7-8773-8ceb005e9941	Duration: 408.07 ms	Billed Duration: 409 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:21 START RequestId: b9f832b8-59af-4504-a5e5-984280f9d2c3 Version: $LATEST
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.363Z	b9f832b8-59af-4504-a5e5-984280f9d2c3	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "b9f832b8-59af-4504-a5e5-984280f9d2c3"}
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.363Z	b9f832b8-59af-4504-a5e5-984280f9d2c3	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "b9f832b8-59af-4504-a5e5-984280f9d2c3"}
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.363Z	b9f832b8-59af-4504-a5e5-984280f9d2c3	{"message": "request.params", "params": {}, "request_id": "b9f832b8-59af-4504-a5e5-984280f9d2c3"}
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.363Z	b9f832b8-59af-4504-a5e5-984280f9d2c3	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "b9f832b8-59af-4504-a5e5-984280f9d2c3"}
+2026-10-08T03:52:21 [INFO]	2026-10-08T03:52:21.760Z	b9f832b8-59af-4504-a5e5-984280f9d2c3	{"message": "query.completed", "duration": 0.39673, "rows": 20, "request_id": "b9f832b8-59af-4504-a5e5-984280f9d2c3"}
+2026-10-08T03:52:21 END RequestId: b9f832b8-59af-4504-a5e5-984280f9d2c3
+2026-10-08T03:52:21 REPORT RequestId: b9f832b8-59af-4504-a5e5-984280f9d2c3	Duration: 398.87 ms	Billed Duration: 399 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:22 START RequestId: ec602629-6569-4e32-b481-bf53b658b82b Version: $LATEST
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.041Z	ec602629-6569-4e32-b481-bf53b658b82b	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "ec602629-6569-4e32-b481-bf53b658b82b"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.041Z	ec602629-6569-4e32-b481-bf53b658b82b	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "ec602629-6569-4e32-b481-bf53b658b82b"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.041Z	ec602629-6569-4e32-b481-bf53b658b82b	{"message": "request.params", "params": {}, "request_id": "ec602629-6569-4e32-b481-bf53b658b82b"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.041Z	ec602629-6569-4e32-b481-bf53b658b82b	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "ec602629-6569-4e32-b481-bf53b658b82b"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.496Z	ec602629-6569-4e32-b481-bf53b658b82b	{"message": "query.completed", "duration": 0.45591000000000004, "rows": 20, "request_id": "ec602629-6569-4e32-b481-bf53b658b82b"}
+2026-10-08T03:52:22 END RequestId: ec602629-6569-4e32-b481-bf53b658b82b
+2026-10-08T03:52:22 REPORT RequestId: ec602629-6569-4e32-b481-bf53b658b82b	Duration: 457.99 ms	Billed Duration: 458 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
+2026-10-08T03:52:22 START RequestId: 3afaa452-d539-4d66-9ab7-b87698047ac7 Version: $LATEST
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.686Z	3afaa452-d539-4d66-9ab7-b87698047ac7	{"message": "stage", "stage": "handler.entry", "elapsed_ms": 0.0, "request_id": "3afaa452-d539-4d66-9ab7-b87698047ac7"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.686Z	3afaa452-d539-4d66-9ab7-b87698047ac7	{"message": "request.received", "keys": ["version", "routeKey", "rawPath", "rawQueryString", "headers", "requestContext", "isBase64Encoded"], "request_id": "3afaa452-d539-4d66-9ab7-b87698047ac7"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.686Z	3afaa452-d539-4d66-9ab7-b87698047ac7	{"message": "request.params", "params": {}, "request_id": "3afaa452-d539-4d66-9ab7-b87698047ac7"}
+2026-10-08T03:52:22 [INFO]	2026-10-08T03:52:22.686Z	3afaa452-d539-4d66-9ab7-b87698047ac7	{"message": "query.start", "bucket": "duckdb-lambda-dev-data-b5a5c4be", "prefix": "raw/sales", "filters": {}, "request_id": "3afaa452-d539-4d66-9ab7-b87698047ac7"}
+2026-10-08T03:52:23 [INFO]	2026-10-08T03:52:23.069Z	3afaa452-d539-4d66-9ab7-b87698047ac7	{"message": "query.completed", "duration": 0.38259, "rows": 20, "request_id": "3afaa452-d539-4d66-9ab7-b87698047ac7"}
+2026-10-08T03:52:23 END RequestId: 3afaa452-d539-4d66-9ab7-b87698047ac7
+2026-10-08T03:52:23 REPORT RequestId: 3afaa452-d539-4d66-9ab7-b87698047ac7	Duration: 384.61 ms	Billed Duration: 385 ms	Memory Size: 2048 MB	Max Memory Used: 147 MB
