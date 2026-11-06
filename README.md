@@ -134,9 +134,16 @@ The project intentionally does not claim exactly-once semantics; it guarantees d
 
 ## Configuration
 
-The Lambda reads configuration from environment variables:
+The Lambda reads configuration from environment variables. For production Lambda execution, use `APP_AWS_REGION` instead of `AWS_REGION` because AWS reserves the latter for the runtime.
 
-- `AWS_REGION`
+The code resolves the region in this order:
+
+1. `APP_AWS_REGION`
+2. `AWS_DEFAULT_REGION`
+3. `AWS_REGION`
+
+Other required environment variables:
+
 - `SALES_BUCKET`
 - `SALES_PREFIX`
 - `RAW_PREFIX`
@@ -149,25 +156,51 @@ Example:
 cp .env.example .env
 ```
 
-## Local setup
+## Fresh-clone reproduction checklist
+
+Prerequisites:
+
+- Python 3.11 or 3.12
+- Docker Desktop or a working Docker daemon
+- AWS CLI v2 configured with valid credentials
+- Terraform 1.5+ installed
+- An AWS account with permission to create ECR, Lambda, API Gateway, IAM, and S3 resources
+
+Setup:
 
 ```bash
+git clone https://github.com/aarigonimi/duckdb-aws-lambda.git
 cd duckdb-aws-lambda
 python -m venv .venv
 source .venv/bin/activate
 pip install -r src/requirements-dev.txt
+cp .env.example .env
 ```
 
-## Run tests
+Run tests:
 
 ```bash
 pytest -q
 ```
 
-## Build the Lambda container image
+Build the Lambda container image locally:
 
 ```bash
 ./scripts/build.sh
+```
+
+Deploy with Terraform:
+
+```bash
+terraform -chdir=terraform init
+terraform -chdir=terraform apply -auto-approve
+```
+
+If you are pushing the image to ECR before Terraform creates the Lambda, use a Docker Buildx push similar to:
+
+```bash
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.us-east-1.amazonaws.com
+docker buildx build --platform linux/amd64 --provenance=false --push -t <account-id>.dkr.ecr.us-east-1.amazonaws.com/duckdb-aws-lambda-lambda:latest -f docker/Dockerfile .
 ```
 
 ## Terraform deployment notes
